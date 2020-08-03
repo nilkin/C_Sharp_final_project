@@ -36,12 +36,3 @@ Müştərilər üçün crud olmalıdır.
 Hesabatlar
 
 İdarəçi hesabatlar bölməsini açdıqda. Ay intervalı seçir o araqlıqdakı satışlar görünməlidir. İstədiyi halda excele export edə bilməlidir.
-
-Ballandırma
-- 40% - Programın problemsiz işləməsi
-- 15% - Github düzgün istifadə olunması
-- 20% - Commentlərin yazılması və project sturukturunun düzgün olması
-- 25% - Programin dizaynın daha rahat olaraq düzəlməsi.
-Təhvil vermə
-Hər həs öz profilində repo açmalıdır. Kodlara ordan baxılacaq. 
-16.08.2020 23:59 qədər repo linki yolchu@code.edu.az-a email atılmalıdır
