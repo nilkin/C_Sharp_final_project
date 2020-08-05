@@ -5,13 +5,14 @@ using System.Text;
 
 namespace Library_App.Models
 {
-   public class Management
+    public enum Positions
     {
-        public enum Positions
-        {
-            Admin,
-            User          
-        }
+        Admin,
+        User
+    }
+    public class Management
+    {
+
         public int Id { get; set; }
         [Required]
         [StringLength(50)]
