@@ -15,8 +15,5 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
     
-    <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="541,166,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="507,98,0,0" VerticalAlignment="Top" Width="120"/>
-    </Grid>
+    <Grid/>
 </Window>
