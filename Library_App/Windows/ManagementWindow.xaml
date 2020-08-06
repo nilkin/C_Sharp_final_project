@@ -29,32 +29,35 @@
     </Window.Resources>
 
     <Grid Height="440" VerticalAlignment="Top">
-       
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="208*"/>
             <ColumnDefinition Width="67*"/>
             <ColumnDefinition Width="525*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="LblUsername" Content="Username" HorizontalAlignment="Left" Margin="30,148,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TxtUsername" HorizontalAlignment="Left" Margin="106,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <Label Content="Position" HorizontalAlignment="Left" Margin="30,243,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="CbxPosition" HorizontalAlignment="Left" Margin="106,241,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Source={StaticResource MyEnum}}"  />
-        <Label x:Name="LblPassword" Content="Password" HorizontalAlignment="Left" Margin="30,195,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TxtPassword" HorizontalAlignment="Left" Margin="106,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" MaxLength="14"/>
         <Label x:Name="LblName" Content="Name" HorizontalAlignment="Left" Margin="30,53,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TxtName" HorizontalAlignment="Left" Margin="106,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
         <Label x:Name="LblSurname" Content="Surname" HorizontalAlignment="Left" Margin="30,101,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TxtSurname" HorizontalAlignment="Left" Margin="106,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
-        <Button x:Name="BtnAdd" Content="Add" HorizontalAlignment="Left" Margin="30,308,0,0" VerticalAlignment="Top" Width="73" Click="BtnAdd_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="129,308,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="30,371,0,0" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="129,371,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="DgPerson" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Margin="66,15,10,37" CanUserResizeColumns="False" Grid.ColumnSpan="2" Grid.Column="1">
+        <Label x:Name="LblUsername" Content="Username" HorizontalAlignment="Left" Margin="30,148,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TxtUsername" HorizontalAlignment="Left" Margin="106,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <Label x:Name="LblPassword" Content="Password" HorizontalAlignment="Left" Margin="30,195,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TxtPassword" HorizontalAlignment="Left" Margin="106,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" MaxLength="14"/>
+        <Label Content="Position" HorizontalAlignment="Left" Margin="30,243,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="CbxPosition" HorizontalAlignment="Left" Margin="106,241,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Source={StaticResource MyEnum}}"  />
+        
+        
+       
+        <Button x:Name="BtnAdd" Content="Add" HorizontalAlignment="Left" Margin="30,308,0,0" VerticalAlignment="Top" Width="77" Click="BtnAdd_Click"/>
+        <Button x:Name="BtnDelete" Content="Delete" HorizontalAlignment="Left" Margin="129,308,0,0" VerticalAlignment="Top" Width="77" Click="BtnDelete_Click"/>
+        <Button x:Name="BtnUpdate" Content="Update" HorizontalAlignment="Left" Margin="30,371,0,0" VerticalAlignment="Top" Click="BtnUpdate_Click"/>
+        <Button x:Name="BtnRead" Content="Read" HorizontalAlignment="Left" Margin="129,371,0,0" VerticalAlignment="Top" Width="77" Click="BtnRead_Click"/>
+        <DataGrid x:Name="DgPerson" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Margin="66,15,10,37" CanUserResizeColumns="False" Grid.ColumnSpan="2" Grid.Column="1" SelectionChanged="DgPerson_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="DgtName" Width="0.25*" Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn x:Name="DgtSurname" Width="0.25*" Header="Surname" Binding="{Binding Surname}"/>
-                <DataGridTextColumn x:Name="DgtUsername" Width="0.25*" Header="Username" Binding="{Binding Username}"/>
-                <DataGridTextColumn x:Name="DgtPassword" Width="0.25*" Header="Password" Binding="{Binding Password}"/>
+                <DataGridTextColumn x:Name="DgtUsername" Width="0.25*" Header="Username" Binding="{Binding UserName}"/>
+                <DataGridTextColumn x:Name="DgtPassword" Width="0.25*" Header="Password" Binding="{Binding Parol}"/>
                 <DataGridTextColumn x:Name="DgtPosition" Width="0.25*" Header="Position" Binding="{Binding Position}"/>
             </DataGrid.Columns>
         </DataGrid>
