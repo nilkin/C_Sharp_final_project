@@ -1,17 +1,11 @@
 ﻿using Library_App.Data;
 using Library_App.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace Library_App.Windows
 {
@@ -28,6 +22,12 @@ namespace Library_App.Windows
         }
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(TxtName.Text) || string.IsNullOrWhiteSpace(TxtPrice.Text)
+            || string.IsNullOrWhiteSpace(TxtPages.Text) || string.IsNullOrWhiteSpace(TxtQuantity.Text))
+            {
+                MessageBox.Show("xanalar boş qala bilmez");
+                return;
+            }
             Double Number;
             if (!Double.TryParse(TxtPrice.Text, out Number)
                 || !Double.TryParse(TxtPages.Text, out Number)
@@ -39,15 +39,15 @@ namespace Library_App.Windows
                 MessageBox.Show("Lütfən doğru emsalı daxil edin");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(TxtName.Text) || string.IsNullOrWhiteSpace(TxtPrice.Text)
-             || string.IsNullOrWhiteSpace(TxtPages.Text) || string.IsNullOrWhiteSpace(TxtQuantity.Text))
+            else
             {
-                MessageBox.Show("xanalar boş qala bilmez");
-                return;
+                LblPrice.Foreground = new SolidColorBrush(Colors.Black);
+                LblQuantity.Foreground = new SolidColorBrush(Colors.Black);
+                LblPages.Foreground = new SolidColorBrush(Colors.Black);
             }
             if (CbxLanguage.SelectedIndex == -1)
             {
-                MessageBox.Show($"Dil doğru seçilməmişdir");
+                MessageBox.Show("Dil seçilməmişdir");
                 return;
             }
             if (_context.Managements.Any(r => r.UserName == TxtName.Text))
@@ -62,8 +62,6 @@ namespace Library_App.Windows
                 Pages = Convert.ToInt32(TxtPages.Text),
                 Quantity= Convert.ToInt32(TxtQuantity.Text),
                 Language = (language)CbxLanguage.SelectedItem
-
-
             };
             _context.Books.Add(_book);
             _context.SaveChanges();
@@ -78,27 +76,25 @@ namespace Library_App.Windows
             _selectedBook = (Book)DgPerson.SelectedItem;
 
             TxtName.Text = _selectedBook.Name;
-            TxtPrice.Text = _selectedBook.Price;
-            TxtPages.Text= _selectedBook.Pages;
-            TxtQuantity.Text = _selectedBook.Quantity;
+            TxtPrice.Text = _selectedBook.Price.ToString();
+            TxtPages.Text= _selectedBook.Pages.ToString();
+            TxtQuantity.Text = _selectedBook.Quantity.ToString();
             CbxLanguage.SelectedItem = _selectedBook.Language;
             BtnUpdate.Visibility = Visibility.Visible;
             BtnDelete.Visibility = Visibility.Visible;
         }
-
         private void BtnRead_Click(object sender, RoutedEventArgs e)
         {
             FillManagements();
             Reset();
         }
-
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             _selectedBook.Name = TxtName.Text;
-            _selectedBook.Price = TxtPrice.Text;
-            _selectedBook.Pages = TxtPages.Text;
-            _selectedBook.Quantity = TxtQuantity.Text;
-            _selectedBook.language = (language)Cbxlanguage.SelectedItem;
+            _selectedBook.Price = Convert.ToDouble(TxtPrice.Text);
+            _selectedBook.Pages = Convert.ToInt32(TxtPages.Text);
+            _selectedBook.Quantity = Convert.ToInt32(TxtQuantity.Text);
+            _selectedBook.Language = (language)CbxLanguage.SelectedItem;
             _context.SaveChanges();
             Reset();
             MessageBox.Show("Kitab haqqında dəyişikliklər yeniləndi");
@@ -107,6 +103,7 @@ namespace Library_App.Windows
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult r = MessageBox.Show("Silməyə əminsiniz?", _selectedBook.ToString(), MessageBoxButton.OKCancel);
             if (r == MessageBoxResult.OK)
             {
                 _context.Books.Remove(_selectedBook);
