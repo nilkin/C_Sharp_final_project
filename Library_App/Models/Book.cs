@@ -4,15 +4,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library_App.Models
 {
-   public class Book
+    public enum language
     {
-        public enum language
-        {
-            Azerbaijani,
-            Turkish,
-            English,
-            Russian
-        }
+        Azerbaijani,
+        Turkish,
+        English,
+        Russian
+    }
+    public class Book
+    {
+
         public int Id { get; set; }
         [Required]
         [StringLength(50)]

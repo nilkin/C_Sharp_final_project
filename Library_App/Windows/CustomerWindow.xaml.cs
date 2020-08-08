@@ -25,7 +25,7 @@ namespace Library_App.Windows
             Double Number;
             if (Double.TryParse(TxtName.Text, out Number) && Double.TryParse(TxtSurname.Text, out Number))
             {
-                MessageBox.Show("Ad ve Soyad reqem ola bilmez");
+                MessageBox.Show("Ad ve Soyad rəqəmlərdən ibarət ola bilmez");
                 return;
             }
 
@@ -44,7 +44,7 @@ namespace Library_App.Windows
             string PhoneStr = string.Join("", words);
             if (!Double.TryParse(PhoneStr, out Number))
             {
-                MessageBox.Show("Telefon nömrəsi hərifdən ibarət ola bilmez");
+                MessageBox.Show("Telefon nömrəsi yalnız rəqəm ola bilər");
                 return;
             }
             _customer = new Customer
@@ -95,7 +95,7 @@ namespace Library_App.Windows
             string PhoneStr = string.Join("", words);
             if (!Double.TryParse(PhoneStr, out Number))
             {
-                MessageBox.Show("Telefon nömrəsi hərifdən ibarət ola bilmez");
+                MessageBox.Show("Telefon nömrəsi yalnız rəqəmlərdən ibarət ola bilər");
                 return;
             }
             _selectedCustomer.Name = TxtName.Text;

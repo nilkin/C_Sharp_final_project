@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\App.xaml
-2-342500049
+3-1035565176
 
-21284271893
+24105033
 215-1682813086
-Windows\CustomerWindow.xaml;Windows\ManagementWindow.xaml;
+Windows\BookWindow.xaml;Windows\CustomerWindow.xaml;Windows\ManagementWindow.xaml;
 
 True
 

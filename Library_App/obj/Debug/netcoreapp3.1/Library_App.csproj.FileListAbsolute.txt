@@ -64,3 +64,5 @@ C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\net
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\CustomerWindow.g.cs
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\CustomerWindow.baml
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\BookWindow.g.cs
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\BookWindow.baml
