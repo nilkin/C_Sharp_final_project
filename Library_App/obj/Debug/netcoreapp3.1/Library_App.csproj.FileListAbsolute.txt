@@ -66,3 +66,9 @@ C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\net
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\CustomerWindow.baml
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\BookWindow.g.cs
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\BookWindow.baml
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\LoginWindow.g.cs
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\LoginWindow.baml
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\DashboardWindow.g.cs
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\DashboardWindow.baml
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\OrderdWindow.g.cs
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\OrderdWindow.baml

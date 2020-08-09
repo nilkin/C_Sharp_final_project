@@ -13,7 +13,16 @@
     <Compile Update="Windows\CustomerWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\DashboardWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\ManagementWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\OrderdWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -24,7 +33,16 @@
     <Page Update="Windows\CustomerWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Windows\DashboardWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Windows\ManagementWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\OrderdWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
