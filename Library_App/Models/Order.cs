@@ -19,8 +19,9 @@ namespace Library_App.Models
         [Required]
         [Column(TypeName = "money")]
         public double TotalPrice { get; set; }
+        [Required]
         [Column(TypeName = "date")]
-        public DateTime CreatedAt { get; set; } 
+        public DateTime CreatedAt { get; set; } =  DateTime.Now;
         public DateTime DeadLine { get; set; } 
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
