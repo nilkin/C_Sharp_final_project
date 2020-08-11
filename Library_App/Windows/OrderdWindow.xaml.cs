@@ -13,10 +13,11 @@ namespace Library_App.Windows
     {
         private readonly LibraryContext _context;
         private Customer _customer;
-        public Order _order;
-        public BookOrder _bookorder;
+        private Order _order;
+        private BookOrder _bookorder;
         int CustId;
         int BkId;
+        double _bookprice;
         public OrderdWindow()
         {
             InitializeComponent();
@@ -61,11 +62,14 @@ namespace Library_App.Windows
                 var ObjResult = from b in _context.Books where b.Name == TxtBookName.Text  
                                          select new { 
                                              b.Name,
-                                             b.Id };
+                                             b.Id,
+                                             b.Price      
+                                         };
                 foreach (var obj in ObjResult)
                 {
                     TxtBookName.Text = $"{obj.Name}";
                     BkId = obj.Id;
+                    _bookprice = obj.Price;
                 }
                 return;
             }
@@ -74,13 +78,6 @@ namespace Library_App.Windows
                 MessageBox.Show($"daxil etdiyiniz {TxtBookName.Text } kitab bazada mövcud deyil");
             }
         }
-
-        private void BtnAddOrder_PreviewTouchDown(object sender, System.Windows.Input.TouchEventArgs e)
-        {
-
-           
-        }
-
         private void BtnAddOrder_Click(object sender, RoutedEventArgs e)
         {
             _order = new Order
@@ -89,9 +86,8 @@ namespace Library_App.Windows
                 DeadLine = (DateTime)DtpDeadline.SelectedDate,
                 CustomerId = CustId,
                 Quantity = (int)myUpDownControl.Value,
-                TotalPrice = 2
+                TotalPrice = _bookprice * (double)myUpDownControl.Value
             };
-
 
             _context.Orders.Add(_order);
             _context.SaveChanges();
@@ -105,6 +101,36 @@ namespace Library_App.Windows
             _context.SaveChanges();
 
             MessageBox.Show("Sifarişiniz daxil edildi");
+
+            var order = (from ef in _context.BookOrders
+                          join p in _context.Books
+                          on ef.BookId equals p.Id
+                          join s in _context.Orders
+                          on ef.OrderId equals s.Id
+                          join t in _context.Customers
+                          on s.CustomerId equals t.Id
+                          where t.Id == CustId
+                          select new
+                          {
+                             p.Name,
+                             s.Quantity,
+                             s.CreatedAt,
+                             s.DeadLine,
+                             s.TotalPrice                            
+                          });
+
+            DgOrder.ItemsSource = order.ToList();
+            //TxtTotalprice.Content = 
         }
+
+
+
+        //private void myUpDownControl_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        //{
+        //    ContentControl content = new ContentControl();
+        //    content = (ContentControl)(_bookprice * myUpDownControl.Value);
+
+        //    TxtTotalprice.Content = content;
+        //}
     }
 }

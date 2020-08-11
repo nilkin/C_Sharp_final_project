@@ -36,18 +36,18 @@
         <Label Content="Pick Order start date :" HorizontalAlignment="Left" Margin="24,229,0,0" VerticalAlignment="Top"/>
         <Label Content="Pick Order end date :" HorizontalAlignment="Left" Margin="180,229,0,0" VerticalAlignment="Top"/>
         <Label Content="Quantity of Book" HorizontalAlignment="Left" Margin="24,284,0,0" VerticalAlignment="Top"/>
-        <xctk:IntegerUpDown Name="myUpDownControl" Margin="24,311,1114,110" ClipValueToMinMax="False" Maximum="250" Minimum="0" Cursor="" Value="1"/>
+        <xctk:IntegerUpDown Name="myUpDownControl" Margin="24,311,1114,110" ClipValueToMinMax="False" Maximum="250" Minimum="0" Cursor="" Value="1" Background="White" FontSize="14" ValueChanged="myUpDownControl_ValueChanged"  />
         <Label Content="Total Price" HorizontalAlignment="Left" Margin="24,368,0,0" VerticalAlignment="Top"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="24,395,0,0" VerticalAlignment="Top" Width="76"/>
+        <Label x:Name="TxtTotalprice" Content="0" HorizontalAlignment="Left" Margin="24,395,0,0" VerticalAlignment="Top" Width="76"/>
         <Label Content="AZN" HorizontalAlignment="Left" Margin="100,395,0,0" VerticalAlignment="Top"/>
 
         <DataGrid x:Name="DgOrder" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Margin="355,15,10,37" CanUserResizeColumns="False" SelectionChanged="DgOrder_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="DgtName" Width="0.25*" Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn x:Name="DgtSurname" Width="0.25*" Header="Surname" Binding="{Binding Surname}"/>
-                <DataGridTextColumn x:Name="DgtUsername" Width="0.25*" Header="Username" Binding="{Binding UserName}"/>
-                <DataGridTextColumn x:Name="DgtPassword" Width="0.25*" Header="Password" Binding="{Binding Parol}"/>
-                <DataGridTextColumn x:Name="DgtPosition" Width="0.25*" Header="Position" Binding="{Binding Position}"/>
+                <DataGridTextColumn x:Name="DgtCreatedAt" Width="0.25*" Header="CreatedAt" Binding="{Binding CreatedAt}"/>
+                <DataGridTextColumn x:Name="DgtPassword" Width="0.25*" Header="DeadLine" Binding="{Binding DeadLine}"/>
+                <DataGridTextColumn x:Name="DgtQuantity" Width="0.25*" Header="Quantity" Binding="{Binding Quantity}"/>
+                <DataGridTextColumn x:Name="DgtTotalPrice" Width="0.25*" Header="TotalPrice" Binding="{Binding TotalPrice}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="BtnAddOrder"  Content="Add" HorizontalAlignment="Left" Margin="245,385,0,0" VerticalAlignment="Top" Width="73" Click="BtnAddOrder_Click"/>
