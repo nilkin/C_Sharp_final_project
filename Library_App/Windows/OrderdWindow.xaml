@@ -19,30 +19,28 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
          WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Label Content="Enter Customer IdCard number :" HorizontalAlignment="Left" Margin="24,25,0,0" VerticalAlignment="Top"/>
-        <Border  CornerRadius="5" BorderThickness="1" BorderBrush="Purple" Margin="24,52,882,344">
+        <Label Content="Enter Customer IdCard number :" HorizontalAlignment="Left" Margin="24,15,0,0" VerticalAlignment="Top"/>
+        <Border  CornerRadius="5" BorderThickness="1" BorderBrush="Purple" Margin="24,70,882,326">
             <TextBox x:Name="TxtCustomerId" TextWrapping="Wrap" Margin="20,11,0,11" SelectionOpacity="0.4" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Width="213" FontSize="14" MaxLength="11"/>
         </Border>
-        <Image  Source="C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\search.png" Margin="254,155,894,259" />
-
-
-        <Label Content="Enter Book name :" HorizontalAlignment="Left" Margin="24,124,0,0" VerticalAlignment="Top"/>
-        <Border  CornerRadius="5" BorderThickness="1" BorderBrush="Purple" Margin="24,146,882,250">
+        <Image  Source="C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\search.png" Margin="254,201,894,213" />
+        <Label Content="Enter Book name :" HorizontalAlignment="Left" Margin="24,134,0,0" VerticalAlignment="Top"/>
+        <Border  CornerRadius="5" BorderThickness="1" BorderBrush="Purple" Margin="24,192,882,204">
             <TextBox x:Name="TxtBookName" TextWrapping="Wrap" Margin="19,9,0,13" SelectionOpacity="0.4" BorderThickness="0,0,0,0" HorizontalAlignment="Left" Width="213" FontSize="14" MaxLength="26" />
         </Border>
-        <Image  Source="C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\search.png" Margin="255,60,895,352" />
-        <DatePicker x:Name="DtpCreatedAt" HorizontalAlignment="Left" Margin="24,251,0,0" VerticalAlignment="Top" Width="138"/>
-        <DatePicker x:Name="DtpDeadline" HorizontalAlignment="Left" Margin="180,251,0,0" VerticalAlignment="Top" Width="138"/>
-        <Label Content="Pick Order start date :" HorizontalAlignment="Left" Margin="24,229,0,0" VerticalAlignment="Top"/>
-        <Label Content="Pick Order end date :" HorizontalAlignment="Left" Margin="180,229,0,0" VerticalAlignment="Top"/>
-        <Label Content="Quantity of Book" HorizontalAlignment="Left" Margin="24,284,0,0" VerticalAlignment="Top"/>
-        <xctk:IntegerUpDown Name="myUpDownControl" Margin="24,311,1114,110" ClipValueToMinMax="False" Maximum="250" Minimum="0" Cursor="" Value="1" Background="White" FontSize="14" ValueChanged="myUpDownControl_ValueChanged"  />
-        <Label Content="Total Price" HorizontalAlignment="Left" Margin="24,368,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TxtTotalprice" Content="0" HorizontalAlignment="Left" Margin="24,395,0,0" VerticalAlignment="Top" Width="76"/>
-        <Label Content="AZN" HorizontalAlignment="Left" Margin="100,395,0,0" VerticalAlignment="Top"/>
-
+        <Image  Source="C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\search.png" Margin="255,78,895,334" />
+        <DatePicker x:Name="DtpCreatedAt" HorizontalAlignment="Left" Margin="24,282,0,0" VerticalAlignment="Top" Width="138"/>
+        <DatePicker x:Name="DtpDeadline" HorizontalAlignment="Left" Margin="180,282,0,0" VerticalAlignment="Top" Width="138"/>
+        <Label Content="Pick Order start date :" HorizontalAlignment="Left" Margin="24,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pick Order end date :" HorizontalAlignment="Left" Margin="180,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="Quantity of Book" HorizontalAlignment="Left" Margin="24,323,0,0" VerticalAlignment="Top"/>
+        <xctk:IntegerUpDown IsReadOnly="True" Name="myUpDownControl" Margin="24,350,1114,71" ClipValueToMinMax="False" Maximum="250" Minimum="0" Cursor="" Value="0" Background="White" FontSize="14" ValueChanged="myUpDownControl_ValueChanged"  />
+        <Label Content="Total Price" HorizontalAlignment="Left" Margin="136,324,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="LblTotalprice"  Content="0" HorizontalAlignment="Left" Margin="136,351,0,0" VerticalAlignment="Top" Width="48" BorderThickness="0,0,0,0"/>
+        <Label Content="AZN" HorizontalAlignment="Left" Margin="207,351,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="DgOrder" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Margin="355,15,10,37" CanUserResizeColumns="False" SelectionChanged="DgOrder_SelectionChanged">
             <DataGrid.Columns>
+                <DataGridTextColumn x:Name="DgtId" Width="0.1*" Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn x:Name="DgtName" Width="0.25*" Header="Name" Binding="{Binding Name}"/>
                 <DataGridTextColumn x:Name="DgtCreatedAt" Width="0.25*" Header="CreatedAt" Binding="{Binding CreatedAt}"/>
                 <DataGridTextColumn x:Name="DgtPassword" Width="0.25*" Header="DeadLine" Binding="{Binding DeadLine}"/>
@@ -50,9 +48,11 @@
                 <DataGridTextColumn x:Name="DgtTotalPrice" Width="0.25*" Header="TotalPrice" Binding="{Binding TotalPrice}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="BtnAddOrder"  Content="Add" HorizontalAlignment="Left" Margin="245,385,0,0" VerticalAlignment="Top" Width="73" Click="BtnAddOrder_Click"/>
-        <Button x:Name="BtnSearchCustomer" BorderBrush="Transparent" Background="Transparent" Content="" HorizontalAlignment="Left" Margin="251,60,0,0" VerticalAlignment="Top" Width="50" Click="BtnSearchCustomer_Click"/>
-        <Button x:Name="BtnSearchBook" BorderBrush="Transparent" Background="Transparent" Content="" HorizontalAlignment="Left" Margin="251,154,0,0" VerticalAlignment="Top" Width="50" Click="BtnSearchBook_Click"/>
-
+        <Button x:Name="BtnAddOrder"  Content="Add" HorizontalAlignment="Left" Margin="246,388,0,0" VerticalAlignment="Top" Width="72" Click="BtnAddOrder_Click"/>
+        <Button x:Name="BtnSearchCustomer" BorderBrush="Transparent" Background="Transparent" Content="" HorizontalAlignment="Left" Margin="251,78,0,0" VerticalAlignment="Top" Width="50" Click="BtnSearchCustomer_Click"/>
+        <Button x:Name="BtnSearchBook" BorderBrush="Transparent" Background="Transparent" Content="" HorizontalAlignment="Left" Margin="251,200,0,0" VerticalAlignment="Top" Width="50" Click="BtnSearchBook_Click"/>
+        <Button x:Name="BtnDelete" Visibility="Hidden" Content="Delete" HorizontalAlignment="Left" Margin="246,387,0,0" VerticalAlignment="Top" Width="72" Click="BtnDelete_Click" RenderTransformOrigin="1.458,-0.292"/>
+        <Label x:Name="LblResultCustomerName" Content="" HorizontalAlignment="Left" Margin="29,37,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="1.812,0.717" Width="289"/>
+        <Label x:Name="LblResultBookName" Content="" HorizontalAlignment="Left" Margin="29,156,0,0" VerticalAlignment="Top" FontSize="18" Width="289"/>
     </Grid>
 </Window>

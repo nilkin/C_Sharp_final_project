@@ -12,6 +12,7 @@ namespace Library_App.Windows
     public partial class OrderdWindow : Window
     {
         private readonly LibraryContext _context;
+        private Order _selectedOrder;
         private Customer _customer;
         private Order _order;
         private BookOrder _bookorder;
@@ -25,10 +26,14 @@ namespace Library_App.Windows
             _customer = new Customer();
             _order = new Order();
             _bookorder = new BookOrder();
+            _selectedOrder = new Order();
 
-    }
+
+        }
     private void DgOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            BtnDelete.Visibility = Visibility;
+            if (DgOrder.SelectedItem == null) return;
 
         }
         private void BtnSearchCustomer_Click(object sender, RoutedEventArgs e)
@@ -45,7 +50,8 @@ namespace Library_App.Windows
                                              };
                 foreach (var obj in anonymousObjResult)
                     {
-                    TxtCustomerId.Text = $"{obj.Name + " " + obj.Surname }";                   
+                    LblResultCustomerName.Content = $"{obj.Name + " " + obj.Surname }";
+                    TxtCustomerId.Clear();                    
                     CustId = obj.Id;
                 }
                 return;                
@@ -67,11 +73,12 @@ namespace Library_App.Windows
                                          };
                 foreach (var obj in ObjResult)
                 {
-                    TxtBookName.Text = $"{obj.Name}";
-                    BkId = obj.Id;
+                    LblResultBookName.Content = $"{obj.Name}";
+                    TxtBookName.Clear();
+                   BkId = obj.Id;
                     _bookprice = obj.Price;
                 }
-                return;
+                myUpDownControl.IsReadOnly = false;
             }
             else
             {
@@ -101,36 +108,63 @@ namespace Library_App.Windows
             _context.SaveChanges();
 
             MessageBox.Show("Sifarişiniz daxil edildi");
+            FillOrder();
 
-            var order = (from ef in _context.BookOrders
-                          join p in _context.Books
-                          on ef.BookId equals p.Id
-                          join s in _context.Orders
-                          on ef.OrderId equals s.Id
-                          join t in _context.Customers
-                          on s.CustomerId equals t.Id
-                          where t.Id == CustId
-                          select new
-                          {
-                             p.Name,
-                             s.Quantity,
-                             s.CreatedAt,
-                             s.DeadLine,
-                             s.TotalPrice                            
-                          });
+
+
+        }
+        private void myUpDownControl_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if (LblTotalprice != null)
+            {
+                LblTotalprice.Content = _bookprice*myUpDownControl.Value;
+            }
+            
+        }
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (DgOrder.SelectedItem == null) return;
+            //Bu hissede order daxilinde olan kitabin id sini elde etmekcun currentItem stringe cevirib 
+            // = ve } isarelerine gore stringlere bolub id nomresini goturdum
+            //sebeb datagridin type orderin typina uygun gelmirdi
+
+            string[] SearchId = DgOrder.SelectedItem.ToString().Split('=', '}');
+            int IdNumber = Convert.ToInt32(SearchId[SearchId.Length - 2]);
+
+            MessageBoxResult r = MessageBox.Show("Silməyə əminsiniz?", IdNumber.ToString(), MessageBoxButton.OKCancel);
+            if (r == MessageBoxResult.OK)
+            {
+                var CustOrder = _context.Orders.Find(IdNumber);
+                _context.Orders.Remove(CustOrder);
+
+                _context.SaveChanges();
+            }
+            FillOrder();
+            BtnDelete.Visibility = Visibility.Hidden;
+        }
+        private void FillOrder()
+        {
+            var order = from ef in _context.BookOrders
+                        join p in _context.Books
+                        on ef.BookId equals p.Id
+                        join s in _context.Orders
+                        on ef.OrderId equals s.Id
+                        join t in _context.Customers
+                        on s.CustomerId equals t.Id
+                        where t.Id == CustId
+                        select new
+                        {
+                            p.Name,
+                            s.Quantity,
+                            s.CreatedAt,
+                            s.DeadLine,
+                            s.TotalPrice,
+                            s.Id
+                        };
 
             DgOrder.ItemsSource = order.ToList();
-            //TxtTotalprice.Content = 
         }
 
 
-
-        //private void myUpDownControl_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        //{
-        //    ContentControl content = new ContentControl();
-        //    content = (ContentControl)(_bookprice * myUpDownControl.Value);
-
-        //    TxtTotalprice.Content = content;
-        //}
     }
 }
