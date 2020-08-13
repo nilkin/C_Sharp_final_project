@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Library_App.Models"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
         mc:Ignorable="d"
-        Title="Management" Height="480" Width="1200"
+        Title="Oder" Height="480" Width="1200"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -38,20 +38,20 @@
         <Label Content="Total Price" HorizontalAlignment="Left" Margin="136,324,0,0" VerticalAlignment="Top"/>
         <Label x:Name="LblTotalprice"  Content="0" HorizontalAlignment="Left" Margin="136,351,0,0" VerticalAlignment="Top" Width="48" BorderThickness="0,0,0,0"/>
         <Label Content="AZN" HorizontalAlignment="Left" Margin="207,351,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="DgOrder" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Margin="355,15,10,37" CanUserResizeColumns="False" SelectionChanged="DgOrder_SelectionChanged">
+        <DataGrid x:Name="DgOrder" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Margin="355,15,10,91" CanUserResizeColumns="False" SelectionChanged="DgOrder_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="DgtId" Width="0.1*" Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn x:Name="DgtName" Width="0.25*" Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn x:Name="DgtCreatedAt" Width="0.25*" Header="CreatedAt" Binding="{Binding CreatedAt}"/>
-                <DataGridTextColumn x:Name="DgtPassword" Width="0.25*" Header="DeadLine" Binding="{Binding DeadLine}"/>
+                <DataGridTextColumn x:Name="DgtCreatedAt" Width="0.25*" Header="CreatedAt" Binding="{Binding CreatedAt,StringFormat=\{0:dd.MM.yy \}}"/>
+                <DataGridTextColumn x:Name="DgtPassword" Width="0.25*" Header="DeadLine" Binding="{Binding DeadLine,StringFormat=\{0:dd.MM.yy \}}"/>
                 <DataGridTextColumn x:Name="DgtQuantity" Width="0.25*" Header="Quantity" Binding="{Binding Quantity}"/>
                 <DataGridTextColumn x:Name="DgtTotalPrice" Width="0.25*" Header="TotalPrice" Binding="{Binding TotalPrice}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="BtnAddOrder"  Content="Add" HorizontalAlignment="Left" Margin="246,388,0,0" VerticalAlignment="Top" Width="72" Click="BtnAddOrder_Click"/>
+        <Button x:Name="BtnAddOrder"  Content="Add" HorizontalAlignment="Left" Margin="246,378,0,0" VerticalAlignment="Top" Width="72" Click="BtnAddOrder_Click"/>
         <Button x:Name="BtnSearchCustomer" BorderBrush="Transparent" Background="Transparent" Content="" HorizontalAlignment="Left" Margin="251,78,0,0" VerticalAlignment="Top" Width="50" Click="BtnSearchCustomer_Click"/>
         <Button x:Name="BtnSearchBook" BorderBrush="Transparent" Background="Transparent" Content="" HorizontalAlignment="Left" Margin="251,200,0,0" VerticalAlignment="Top" Width="50" Click="BtnSearchBook_Click"/>
-        <Button x:Name="BtnDelete" Visibility="Hidden" Content="Delete" HorizontalAlignment="Left" Margin="246,387,0,0" VerticalAlignment="Top" Width="72" Click="BtnDelete_Click" RenderTransformOrigin="1.458,-0.292"/>
+        <Button x:Name="BtnDelete" Visibility="Hidden" Content="Delete" HorizontalAlignment="Left" Margin="1049,378,0,0" VerticalAlignment="Top" Width="72" Click="BtnDelete_Click" RenderTransformOrigin="1.458,-0.292"/>
         <Label x:Name="LblResultCustomerName" Content="" HorizontalAlignment="Left" Margin="29,37,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="1.812,0.717" Width="289"/>
         <Label x:Name="LblResultBookName" Content="" HorizontalAlignment="Left" Margin="29,156,0,0" VerticalAlignment="Top" FontSize="18" Width="289"/>
     </Grid>

@@ -38,6 +38,13 @@ namespace Library_App.Windows
         }
         private void BtnSearchCustomer_Click(object sender, RoutedEventArgs e)
         {
+            if ( string.IsNullOrWhiteSpace(TxtCustomerId.Text))
+            {
+                MessageBox.Show("Sifarişçi İd-si daxil edilməmişdir !  " +
+                    "Lütfən İd-ni daxil edin");
+                return;
+            }
+
             if (_context.Customers.Any(r => r.IdCard == TxtCustomerId.Text))
             {
          var anonymousObjResult = from c in _context.Customers
@@ -58,11 +65,18 @@ namespace Library_App.Windows
             }
             else
             {
-                MessageBox.Show($"daxil etdiyiniz {TxtCustomerId.Text} seriya bazada mövcud deyil");
+                MessageBox.Show($"daxil etdiyiniz {TxtCustomerId.Text} seriya nömrəsli müştəri bazada mövcud deyil");
             }
         }
         private void BtnSearchBook_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(TxtBookName.Text))
+            {
+                MessageBox.Show("Kitabın adı daxil edilməmişdir !   " +
+                    "Lütfən Kitab adını daxil edin");
+                return;
+            }
+
             if (_context.Books.Any(r => r.Name == TxtBookName.Text))
             {
                 var ObjResult = from b in _context.Books where b.Name == TxtBookName.Text  
@@ -87,6 +101,23 @@ namespace Library_App.Windows
         }
         private void BtnAddOrder_Click(object sender, RoutedEventArgs e)
         {
+
+
+            if (string.IsNullOrWhiteSpace(LblResultCustomerName.Content.ToString()) || string.IsNullOrWhiteSpace(LblResultBookName.Content.ToString()))
+            {
+                MessageBox.Show("Sifarişçi və ya Kitab seçilməmişdir !");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(DtpCreatedAt.Text) || string.IsNullOrWhiteSpace(DtpDeadline.Text))
+            {
+                MessageBox.Show("Tarix seçilməmişdir !");
+                return;
+            }
+            if (myUpDownControl.Value == 0)
+            {
+                MessageBox.Show("Lütfən məbləğ seçin !");
+                return;
+            }
             _order = new Order
             {
                 CreatedAt = (DateTime)DtpCreatedAt.SelectedDate,
@@ -109,6 +140,7 @@ namespace Library_App.Windows
 
             MessageBox.Show("Sifarişiniz daxil edildi");
             FillOrder();
+            Reset();
 
 
 
@@ -140,7 +172,7 @@ namespace Library_App.Windows
                 _context.SaveChanges();
             }
             FillOrder();
-            BtnDelete.Visibility = Visibility.Hidden;
+            Reset();
         }
         private void FillOrder()
         {
@@ -164,7 +196,16 @@ namespace Library_App.Windows
 
             DgOrder.ItemsSource = order.ToList();
         }
-
+        private void Reset()
+        {
+            LblResultCustomerName.Content = null;
+            LblResultBookName.Content = null;
+            DtpCreatedAt.SelectedDate = null;
+            DtpDeadline.SelectedDate = null;
+            myUpDownControl.Value = 0;
+            BtnDelete.Visibility = Visibility.Hidden;
+            myUpDownControl.IsReadOnly = true;
+        }
 
     }
 }
