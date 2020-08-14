@@ -26,13 +26,13 @@ namespace Library_App.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("Language")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("BookName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("Language")
+                        .HasColumnType("int");
 
                     b.Property<int>("Pages")
                         .HasColumnType("int");
@@ -157,6 +157,12 @@ namespace Library_App.Migrations
 
                     b.Property<DateTime>("DeadLine")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("Fine")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("PaymentStatus")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");

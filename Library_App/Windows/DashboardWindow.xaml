@@ -3,8 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Library_App.Windows"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Library_App.Models"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
         mc:Ignorable="d"
-        Title="DashboardWindow" Height="450" Width="800">
-    
+        Title="Menu" Height="780" Width="1150"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Button Content="Books" HorizontalAlignment="Left" Margin="130,64,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
+        <Button Content="Management" HorizontalAlignment="Left" Margin="741,528,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
+        <Button Content="Customers" HorizontalAlignment="Left" Margin="130,528,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="741,300,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="437,300,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="130,300,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="437,64,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="741,64,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
+
+    </Grid>
 </Window>

@@ -57,7 +57,7 @@ namespace Library_App.Windows
             }
             _book = new Book
             {
-                Name = TxtName.Text,
+                BookName = TxtName.Text,
                 Price = Convert.ToDouble(TxtPrice.Text),
                 Pages = Convert.ToInt32(TxtPages.Text),
                 Quantity= Convert.ToInt32(TxtQuantity.Text),
@@ -75,7 +75,7 @@ namespace Library_App.Windows
 
             _selectedBook = (Book)DgPerson.SelectedItem;
 
-            TxtName.Text = _selectedBook.Name;
+            TxtName.Text = _selectedBook.BookName;
             TxtPrice.Text = _selectedBook.Price.ToString();
             TxtPages.Text= _selectedBook.Pages.ToString();
             TxtQuantity.Text = _selectedBook.Quantity.ToString();
@@ -90,7 +90,7 @@ namespace Library_App.Windows
         }
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            _selectedBook.Name = TxtName.Text;
+            _selectedBook.BookName = TxtName.Text;
             _selectedBook.Price = Convert.ToDouble(TxtPrice.Text);
             _selectedBook.Pages = Convert.ToInt32(TxtPages.Text);
             _selectedBook.Quantity = Convert.ToInt32(TxtQuantity.Text);
@@ -109,7 +109,7 @@ namespace Library_App.Windows
                 _context.Books.Remove(_selectedBook);
                 _context.SaveChanges();
                 Reset();
-                MessageBox.Show($"{_selectedBook.Name } adlı kitab silindi") ;
+                MessageBox.Show($"{_selectedBook.BookName } adlı kitab silindi") ;
                 FillManagements();
             }
         }

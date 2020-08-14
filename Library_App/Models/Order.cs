@@ -24,9 +24,12 @@ namespace Library_App.Models
         public DateTime CreatedAt { get; set; } =  DateTime.Now;
         public DateTime DeadLine { get; set; } 
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public Customer Customer { get; set; } 
         public ICollection<BookOrder> BookOrders { get; set; }
-
+        [Required]
+        public bool PaymentStatus { get; set; } = false;
+        [Required]
+        public double Fine { get; set; } = 0;
 
 
     }

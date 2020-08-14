@@ -17,7 +17,7 @@ namespace Library_App.Models
         public int Id { get; set; }
         [Required]
         [StringLength(50)]
-        public string Name { get; set; }
+        public string BookName { get; set; }
         [Required]
         [Column(TypeName = "money")]
         public double Price { get; set; }

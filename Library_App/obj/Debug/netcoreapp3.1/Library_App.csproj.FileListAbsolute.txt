@@ -90,3 +90,5 @@ C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\net
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\ReturnBooksWindow.g.cs
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\ReturnBooksWindow.baml

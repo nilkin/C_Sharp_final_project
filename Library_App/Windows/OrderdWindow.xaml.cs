@@ -27,10 +27,8 @@ namespace Library_App.Windows
             _order = new Order();
             _bookorder = new BookOrder();
             _selectedOrder = new Order();
-
-
         }
-    private void DgOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void DgOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BtnDelete.Visibility = Visibility;
             if (DgOrder.SelectedItem == null) return;
@@ -77,17 +75,17 @@ namespace Library_App.Windows
                 return;
             }
 
-            if (_context.Books.Any(r => r.Name == TxtBookName.Text))
+            if (_context.Books.Any(r => r.BookName == TxtBookName.Text))
             {
-                var ObjResult = from b in _context.Books where b.Name == TxtBookName.Text  
+                var ObjResult = from b in _context.Books where b.BookName == TxtBookName.Text  
                                          select new { 
-                                             b.Name,
+                                             b.BookName,
                                              b.Id,
                                              b.Price      
                                          };
                 foreach (var obj in ObjResult)
                 {
-                    LblResultBookName.Content = $"{obj.Name}";
+                    LblResultBookName.Content = $"{obj.BookName}";
                     TxtBookName.Clear();
                    BkId = obj.Id;
                     _bookprice = obj.Price;
@@ -141,9 +139,6 @@ namespace Library_App.Windows
             MessageBox.Show("Sifarişiniz daxil edildi");
             FillOrder();
             Reset();
-
-
-
         }
         private void myUpDownControl_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
@@ -186,7 +181,7 @@ namespace Library_App.Windows
                         where t.Id == CustId
                         select new
                         {
-                            p.Name,
+                            p.BookName,
                             s.Quantity,
                             s.CreatedAt,
                             s.DeadLine,

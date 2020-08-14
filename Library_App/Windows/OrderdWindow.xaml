@@ -41,7 +41,7 @@
         <DataGrid x:Name="DgOrder" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Margin="355,15,10,91" CanUserResizeColumns="False" SelectionChanged="DgOrder_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="DgtId" Width="0.1*" Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn x:Name="DgtName" Width="0.25*" Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn x:Name="DgtBookName" Width="0.25*" Header="BookName" Binding="{Binding BookName}"/>
                 <DataGridTextColumn x:Name="DgtCreatedAt" Width="0.25*" Header="CreatedAt" Binding="{Binding CreatedAt,StringFormat=\{0:dd.MM.yy \}}"/>
                 <DataGridTextColumn x:Name="DgtPassword" Width="0.25*" Header="DeadLine" Binding="{Binding DeadLine,StringFormat=\{0:dd.MM.yy \}}"/>
                 <DataGridTextColumn x:Name="DgtQuantity" Width="0.25*" Header="Quantity" Binding="{Binding Quantity}"/>
