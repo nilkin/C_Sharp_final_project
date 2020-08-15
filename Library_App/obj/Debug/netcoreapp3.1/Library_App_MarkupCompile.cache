@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 c:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\App.xaml
-71217279070
+91662993789
 
-38704796808
+41-252498228
 222-605322503
-Windows\BookWindow.xaml;Windows\CustomerWindow.xaml;Windows\DashboardWindow.xaml;Windows\LoginWindow.xaml;Windows\ManagementWindow.xaml;Windows\OrderdWindow.xaml;Windows\ReturnBooksWindow.xaml;
+Windows\BookWindow.xaml;Windows\CustomerWindow.xaml;Windows\DashboardWindow.xaml;Windows\LoginWindow.xaml;Windows\ManagementWindow.xaml;Windows\OrderdWindow.xaml;Windows\ReportsWindow.xaml;Windows\ReturnBooksWindow.xaml;Windows\TrackOrdersWindow.xaml;
 
 True
 

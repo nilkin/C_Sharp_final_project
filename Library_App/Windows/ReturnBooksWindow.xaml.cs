@@ -96,8 +96,10 @@ namespace Library_App.Windows
                             s.Id
 
                         };
-
+           
             DgReturnBooks.ItemsSource = order.ToList();
+
+            
         }
 
         private void Reset()

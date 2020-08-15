@@ -13,14 +13,17 @@
 
          WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Button Content="Books" HorizontalAlignment="Left" Margin="130,64,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
-        <Button Content="Management" HorizontalAlignment="Left" Margin="741,528,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
-        <Button Content="Customers" HorizontalAlignment="Left" Margin="130,528,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="741,300,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="437,300,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="130,300,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="437,64,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="741,64,0,0" VerticalAlignment="Top" Height="175" Width="273"/>
+        <Button x:Name="BtnBooks" Content="Books" HorizontalAlignment="Left" Margin="130,64,0,0" VerticalAlignment="Top" Height="175" Width="273" Background="#FF2ABBCF" BorderBrush="#FF3A8CB7" FontSize="24" Click="BtnBooks_Click"/>
+        <Button x:Name="BtnLogOut" Content="Log out" HorizontalAlignment="Left" Margin="741,528,0,0" VerticalAlignment="Top" Height="175" Width="273" Background="#FF945DF6" BorderBrush="#FF8665C0" FontSize="24" Click="BtnLogOut_Click"/>
+        <Button x:Name="BtnDailyTracking" Content="Tracking" HorizontalAlignment="Left" Margin="130,528,0,0" VerticalAlignment="Top" Height="175" Width="273" Background="#FF5C67DA" BorderBrush="#FF3A64B7" FontSize="24" Click="BtnDailyTracking_Click"/>
+        <Button x:Name="BtnDailyReports" Content="Reports"  HorizontalAlignment="Left" Margin="741,300,0,0" VerticalAlignment="Top" Height="175" Width="273" Background="#FF697885" BorderBrush="#FF474A4F" FontSize="24" Click="BtnDailyReports_Click"/>
+        <Button x:Name="BtnNewOrder" Content="New Order" HorizontalAlignment="Left" Margin="437,300,0,0" VerticalAlignment="Top" Height="175" Width="273" Background="#FFE84546" BorderBrush="#FFB7433A" FontSize="24" Click="BtnNewOrder_Click"/>
+        <Button x:Name="BtnReturns" Content="Returns" HorizontalAlignment="Left" Margin="130,300,0,0" VerticalAlignment="Top" Height="175" Width="273" Background="#FFD8D937" BorderBrush="#FFCFD032" FontSize="24" Click="BtnReturns_Click"/>
+        <Button x:Name="BtnCustomers" Content="Customers" HorizontalAlignment="Left" Margin="437,64,0,0" VerticalAlignment="Top" Height="175" Width="273" Background="#FF5AAD5D" BorderBrush="#FF58A254" FontSize="24" Click="BtnCustomers_Click"/>
+        <Button x:Name="BtnManagement" Content="Management" HorizontalAlignment="Left" Margin="741,64,0,0" VerticalAlignment="Top" Height="175" Width="273" Background="#FFFB9830" FontSize="24" Click="BtnManagement_Click" BorderBrush="#FFD1A443"/>
+
+
+
 
     </Grid>
 </Window>

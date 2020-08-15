@@ -1,0 +1,78 @@
+﻿<Window x:Class="Library_App.Windows.TrackOrdersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:Library_App.Models"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" 
+        mc:Ignorable="d"
+        Title="Tracking" Height="780" Width="740"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Books to be returned today">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="DgtPast" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"  Margin="0,0,0,82" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="DgtName" Width="0.25*" Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn x:Name="DgtSurname" Width="0.25*" Header="Surname" Binding="{Binding Surname}"/>
+                            <DataGridTextColumn x:Name="DgtPhone" Width="0.25*" Header="Phone" Binding="{Binding Phone}"/>
+                            <DataGridTextColumn x:Name="DgtEmail" Width="0.25*" Header="Email" Binding="{Binding Email}"/>
+                            <DataGridTextColumn x:Name="DgtQuantity" Width="0.25*" Header="Book Quantity" Binding="{Binding Quantity}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="BtnShow" Content="Show" HorizontalAlignment="Left" Margin="443,657,0,0" VerticalAlignment="Top" Click="BtnShow_Click"/>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Books to be returned tomorrow">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="DgtTomorrow" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"   Margin="0,0,0,82" Grid.ColumnSpan="4">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="Dgt_Name" Width="0.25*" Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn x:Name="Dgt_Surname" Width="0.25*" Header="Surname" Binding="{Binding Surname}"/>
+                            <DataGridTextColumn x:Name="Dgt_Phone" Width="0.25*" Header="Phone" Binding="{Binding Phone}"/>
+                            <DataGridTextColumn x:Name="Dgt_Email" Width="0.25*" Header="Email" Binding="{Binding Email}"/>
+                            <DataGridTextColumn x:Name="Dgt_Quantity" Width="0.25*" Header="Book Quantity" Binding="{Binding Quantity}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="BtnShow2" Content="Show" HorizontalAlignment="Left" Margin="442,658,0,0" VerticalAlignment="Top" Click="BtnShow2_Click"/>
+
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="Non-returnable books">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="DgtNonReturnable" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"   Margin="0,0,0,82" Grid.ColumnSpan="5">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="Dg_Name" Width="0.25*" Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn x:Name="Dg_Surname" Width="0.25*" Header="Surname" Binding="{Binding Surname}"/>
+                            <DataGridTextColumn x:Name="Dg_Phone" Width="0.25*" Header="Phone" Binding="{Binding Phone}"/>
+                            <DataGridTextColumn x:Name="Dg_Email" Width="0.25*" Header="Email" Binding="{Binding Email}"/>
+                            <DataGridTextColumn x:Name="Dg_Quantity" Width="0.25*" Header="Book Quantity" Binding="{Binding Quantity}"/>
+
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="BtnShow3" Content="Show" HorizontalAlignment="Left" Margin="442,657,0,0" VerticalAlignment="Top" Click="BtnShow3_Click" />
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="BtnMain" Content="Back to Main Menu" HorizontalAlignment="Left" Margin="548,681,0,0" VerticalAlignment="Top" Width="160" Click="BtnMain_Click"/>
+
+
+    </Grid>
+</Window>

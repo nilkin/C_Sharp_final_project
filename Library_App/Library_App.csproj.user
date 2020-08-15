@@ -25,7 +25,13 @@
     <Compile Update="Windows\OrderdWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\ReportsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\ReturnBooksWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\TrackOrdersWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -48,7 +54,13 @@
     <Page Update="Windows\OrderdWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Windows\ReportsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Windows\ReturnBooksWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\TrackOrdersWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
