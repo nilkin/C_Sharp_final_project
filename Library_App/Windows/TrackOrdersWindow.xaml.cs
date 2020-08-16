@@ -25,21 +25,24 @@ namespace Library_App.Windows
 
         private void BtnShow_Click(object sender, RoutedEventArgs e)
         {
-            var order = from ef in _context.Orders
-                        join t in _context.Customers
-                        on ef.CustomerId equals t.Id
-                        where ef.DeadLine.Date == DateTime.Now.Date
-                        where ef.PaymentStatus == false
+            var query = from c in _context.Customers
+                        join o in _context.Orders
+                        on c.Id equals o.CustomerId
+                        where o.DeadLine.Date == DateTime.Now.Date
+                        where o.PaymentStatus == false
+                        group o by new { c.Name, c.Surname, c.Phone, c.Email }
+                        into g
                         select new
                         {
-                            t.Name,
-                            t.Surname,
-                            t.Phone,
-                            t.Email,
-                            ef.Quantity,
-                            ef.DeadLine
+                            g.Key.Name,
+                            g.Key.Surname,
+                            g.Key.Phone,
+                            g.Key.Email,
+                            Quantity = g.Sum(x => x.Quantity),
                         };
-            DgtPast.ItemsSource = order.ToList();
+            DgtToDay.ItemsSource = query.ToList();
+
+
 
         }
 
@@ -52,43 +55,47 @@ namespace Library_App.Windows
 
         private void BtnShow2_Click(object sender, RoutedEventArgs e)
         {
-            var order = from ef in _context.Orders
-                        join t in _context.Customers
-                        on ef.CustomerId equals t.Id
-                        where ef.DeadLine.Date >= DateTime.Now.Date
-                        where ef.PaymentStatus == false
+
+            var query = from c in _context.Customers
+                        join o in _context.Orders
+                        on c.Id equals o.CustomerId
+                        where o.DeadLine.Date >= DateTime.Now.Date
+                        where o.PaymentStatus == false
+                        group o by new { c.Name, c.Surname, c.Phone, c.Email }
+                        into g
                         select new
                         {
-                            t.Name,
-                            t.Surname,
-                            t.Phone,
-                            t.Email,
-                            ef.Quantity,
-                            ef.DeadLine
-                        };
-            DgtTomorrow.ItemsSource = order.ToList();
-        }
-        private void BtnShow3_Click(object sender, RoutedEventArgs e)
-        {
-
-            var order = from o in _context.Orders
-                        join c in _context.Customers
-                        on o.CustomerId equals c.Id
-                        group o by o.CustomerId into g
-
-                        select new 
-                        {
-
+                            g.Key.Name,
+                            g.Key.Surname,
+                            g.Key.Phone,
+                            g.Key.Email,
                             Quantity = g.Sum(x => x.Quantity),
 
                         };
 
-            DgtNonReturnable.ItemsSource = order.ToList();
 
-            //foreach (var item in order)
-            //{
-            //    MessageBox.Show(item.Quantity.ToString());
-            //};
+            DgtTomorrow.ItemsSource = query.ToList();
+        }
+        private void BtnShow3_Click(object sender, RoutedEventArgs e)
+        {
+            var query = from c in _context.Customers
+                        join o in _context.Orders
+                        on c.Id equals o.CustomerId
+                        where o.DeadLine.Date <= DateTime.Now.Date
+                        where o.PaymentStatus == false
+                        group o by new { c.Name, c.Surname, c.Phone, c.Email }
+                        into g
+                        select new
+                        {
+                            g.Key.Name,
+                            g.Key.Surname,
+                            g.Key.Phone,
+                            g.Key.Email,
+                            Quantity = g.Sum(x => x.Quantity),
+                        };
+            DgtPast.ItemsSource = query.ToList();
+
+           
         }
     } 
 }

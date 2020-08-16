@@ -22,7 +22,7 @@
         <TabControl>
             <TabItem Header="Books to be returned today">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="DgtPast" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"  Margin="0,0,0,82" Grid.ColumnSpan="2">
+                    <DataGrid x:Name="DgtToDay" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"  Margin="0,0,0,82" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="DgtName" Width="0.25*" Header="Name" Binding="{Binding Name}"/>
                             <DataGridTextColumn x:Name="DgtSurname" Width="0.25*" Header="Surname" Binding="{Binding Surname}"/>
@@ -55,7 +55,7 @@
 
             <TabItem Header="Non-returnable books">
                 <Grid Background="#FFE5E5E5">
-                    <DataGrid x:Name="DgtNonReturnable" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"   Margin="0,0,0,82" Grid.ColumnSpan="5">
+                    <DataGrid x:Name="DgtPast" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" CanUserResizeColumns="False"   Margin="0,0,0,82" Grid.ColumnSpan="5">
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="Dg_Name" Width="0.25*" Header="Name" Binding="{Binding Name}"/>
                             <DataGridTextColumn x:Name="Dg_Surname" Width="0.25*" Header="Surname" Binding="{Binding Surname}"/>
