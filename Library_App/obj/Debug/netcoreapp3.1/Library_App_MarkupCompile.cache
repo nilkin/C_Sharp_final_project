@@ -1,20 +1,20 @@
 ﻿Library_App
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\
+c:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\
 Library_App
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\App.xaml
-9-942037713
+c:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\App.xaml
+91662993789
 
-44302720653
-226532381646
+46-900951048
+226-435549052
 Windows\BookWindow.xaml;Windows\CustomerWindow.xaml;Windows\DashboardWindow.xaml;Windows\LoginWindow.xaml;Windows\ManagementWindow.xaml;Windows\OrderdWindow.xaml;Windows\ReportsWindow.xaml;Windows\ReturnBooksWindow.xaml;Windows\TrackOrdersWindow.xaml;
 
-False
+True
 

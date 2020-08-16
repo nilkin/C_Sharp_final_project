@@ -237,7 +237,7 @@ namespace Library_App.Windows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Library_App;component/windows/orderdwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Library_App;V1.0.0.0;component/windows/orderdwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\OrderdWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
