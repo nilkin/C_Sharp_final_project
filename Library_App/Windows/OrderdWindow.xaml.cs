@@ -28,12 +28,14 @@ namespace Library_App.Windows
             _bookorder = new BookOrder();
             _selectedOrder = new Order();
         }
+        //select from DataGrid
         private void DgOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BtnDelete.Visibility = Visibility;
             if (DgOrder.SelectedItem == null) return;
 
         }
+        //SEARCH CUSTOMER FROM DATABASE
         private void BtnSearchCustomer_Click(object sender, RoutedEventArgs e)
         {
             if ( string.IsNullOrWhiteSpace(TxtCustomerId.Text))
@@ -64,8 +66,10 @@ namespace Library_App.Windows
             else
             {
                 MessageBox.Show($"daxil etdiyiniz {TxtCustomerId.Text} seriya nömrəsli müştəri bazada mövcud deyil");
+                TxtCustomerId.Clear();
             }
         }
+        //SEARCH BOOKS FROM DATABASE
         private void BtnSearchBook_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TxtBookName.Text))
@@ -95,11 +99,13 @@ namespace Library_App.Windows
             else
             {
                 MessageBox.Show($"daxil etdiyiniz {TxtBookName.Text } kitab bazada mövcud deyil");
+                TxtBookName.Clear();
             }
         }
+        //add ORDER to Datbase
         private void BtnAddOrder_Click(object sender, RoutedEventArgs e)
         {
-
+            //VALIDATIONS
 
             if (string.IsNullOrWhiteSpace(LblResultCustomerName.Content.ToString()) || string.IsNullOrWhiteSpace(LblResultBookName.Content.ToString()))
             {
@@ -140,6 +146,7 @@ namespace Library_App.Windows
             FillOrder();
             Reset();
         }
+        // UPDOWN CONTROL INPUT
         private void myUpDownControl_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             if (LblTotalprice != null)
@@ -148,6 +155,7 @@ namespace Library_App.Windows
             }
             
         }
+        //delete from DataBase
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             if (DgOrder.SelectedItem == null) return;
@@ -169,6 +177,14 @@ namespace Library_App.Windows
             FillOrder();
             Reset();
         }
+        //back to main dashboard window
+        private void BtnMain_Click(object sender, RoutedEventArgs e)
+        {
+            DashboardWindow dw = new DashboardWindow();
+            dw.Show();
+            this.Close();
+        }
+        //filling data method
         private void FillOrder()
         {
             var order = from ef in _context.BookOrders
@@ -191,6 +207,7 @@ namespace Library_App.Windows
 
             DgOrder.ItemsSource = order.ToList();
         }
+        //reset method
         private void Reset()
         {
             LblResultCustomerName.Content = null;
@@ -201,6 +218,7 @@ namespace Library_App.Windows
             BtnDelete.Visibility = Visibility.Hidden;
             myUpDownControl.IsReadOnly = true;
         }
+
 
     }
 }

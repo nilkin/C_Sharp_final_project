@@ -20,6 +20,7 @@ namespace Library_App.Windows
             _customer = new Customer();
             
         }
+        //add to Datbase
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             Double Number;
@@ -62,6 +63,7 @@ namespace Library_App.Windows
             FillCustomers();
 
         }
+        //select from DataGrid
         private void DgPerson_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (DgPerson.SelectedItem == null) return;
@@ -76,6 +78,7 @@ namespace Library_App.Windows
             BtnUpdate.Visibility = Visibility.Visible;
             BtnDelete.Visibility = Visibility.Visible;
         }
+        //delete from DataBase
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult r = MessageBox.Show("Silməyə əminsiniz?", _selectedCustomer.ToString(), MessageBoxButton.OKCancel);
@@ -88,6 +91,7 @@ namespace Library_App.Windows
                 FillCustomers();
             }
         }
+        //update from DataGrid add to DB
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             Double Number;
@@ -108,16 +112,26 @@ namespace Library_App.Windows
             MessageBox.Show("Müştəri məlumatları yeniləndi");
             FillCustomers();
         }
+        //read from DataBase
         private void BtnRead_Click(object sender, RoutedEventArgs e)
         {
             FillCustomers();
             Reset();
         }
+        //back to main dashboard window
+        private void BtnMain_Click(object sender, RoutedEventArgs e)
+        {
+            DashboardWindow dw = new DashboardWindow();
+            dw.Show();
+            this.Close();
+        }
+        //filling data method
         private void FillCustomers()
         {
             DgPerson.ItemsSource = _context.Customers.ToList();
 
         }
+        //reset method
         private void Reset()
         {
             TxtName.Clear();
@@ -129,6 +143,9 @@ namespace Library_App.Windows
             BtnDelete.Visibility = Visibility.Hidden;
             BtnRead.Visibility = Visibility.Hidden;
         }
+
+
+
 
     }
 }

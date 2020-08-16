@@ -41,6 +41,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.95.3, )"
+            },
             "Extended.Wpf.Toolkit": {
               "target": "Package",
               "version": "[4.0.1, )"

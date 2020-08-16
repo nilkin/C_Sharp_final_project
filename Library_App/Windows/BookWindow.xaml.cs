@@ -20,8 +20,12 @@ namespace Library_App.Windows
             _context = new LibraryContext();
             _book = new Book();
         }
+    
+        //add to Datbase
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            //Validation start
+
             if (string.IsNullOrWhiteSpace(TxtName.Text) || string.IsNullOrWhiteSpace(TxtPrice.Text)
             || string.IsNullOrWhiteSpace(TxtPages.Text) || string.IsNullOrWhiteSpace(TxtQuantity.Text))
             {
@@ -55,6 +59,9 @@ namespace Library_App.Windows
                 MessageBox.Show($"{TxtName.Text} adlı kitab mövcüddür");
                 return;
             }
+            //Validation end
+            //adding to database
+
             _book = new Book
             {
                 BookName = TxtName.Text,
@@ -69,6 +76,7 @@ namespace Library_App.Windows
             Reset();
             FillManagements();
         }
+        //select from DataGrid
         private void DgPerson_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (DgPerson.SelectedItem == null) return;
@@ -83,11 +91,13 @@ namespace Library_App.Windows
             BtnUpdate.Visibility = Visibility.Visible;
             BtnDelete.Visibility = Visibility.Visible;
         }
+        //read from DataBase
         private void BtnRead_Click(object sender, RoutedEventArgs e)
         {
             FillManagements();
             Reset();
         }
+        //update from DataGrid add to DB
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             _selectedBook.BookName = TxtName.Text;
@@ -100,7 +110,7 @@ namespace Library_App.Windows
             MessageBox.Show("Kitab haqqında dəyişikliklər yeniləndi");
             FillManagements();
         }
-
+        //delete from DataBase
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult r = MessageBox.Show("Silməyə əminsiniz?", _selectedBook.ToString(), MessageBoxButton.OKCancel);
@@ -113,7 +123,19 @@ namespace Library_App.Windows
                 FillManagements();
             }
         }
-
+        //back to main dashboard window
+        private void BtnMain_Click(object sender, RoutedEventArgs e)
+        {
+            DashboardWindow dw = new DashboardWindow();
+            dw.Show();
+            this.Close();
+        }
+        //filling data method
+        private void FillManagements()
+        {
+            DgPerson.ItemsSource = _context.Books.ToList();
+        }
+        //reset method
         private void Reset()
         {
             TxtName.Clear();
@@ -125,9 +147,8 @@ namespace Library_App.Windows
             BtnDelete.Visibility = Visibility.Hidden;
             BtnRead.Visibility = Visibility.Hidden;
         }
-        private void FillManagements()
-        {
-            DgPerson.ItemsSource = _context.Books.ToList();
-        }
+
+
+
     }
 }

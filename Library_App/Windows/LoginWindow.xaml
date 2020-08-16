@@ -20,8 +20,8 @@
         <Label  Content="Login" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TxtLogin" HorizontalAlignment="Center" Margin="0,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Password" HorizontalAlignment="Center" Margin="0,115,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TxtPassword"  HorizontalAlignment="Center" Margin="0,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
+        <PasswordBox x:Name="TxtPassword" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Margin="0,159,0,0"/>
         <Button x:Name="BtnSignIn" Content="Sign in" HorizontalAlignment="Center" Margin="0,215,0,0" VerticalAlignment="Top" Width="120" Click="BtnSignIn_Click"/>
+
     </Grid>
 </Window>

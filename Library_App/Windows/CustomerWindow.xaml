@@ -40,6 +40,7 @@
         <Button Visibility="Hidden" x:Name="BtnDelete" Content="Delete" HorizontalAlignment="Left" Margin="129,308,0,0" VerticalAlignment="Top" Width="77" Click="BtnDelete_Click" />
         <Button Visibility="Hidden" x:Name="BtnUpdate" Content="Update" HorizontalAlignment="Left" Margin="30,371,0,0" VerticalAlignment="Top" Click="BtnUpdate_Click"/>
         <Button x:Name="BtnRead" Content="Read" HorizontalAlignment="Left" Margin="127,308,0,0" VerticalAlignment="Top" Width="77" Click="BtnRead_Click" />
+        <Button x:Name="BtnMain" Content="Main" HorizontalAlignment="Left" Margin="127,371,0,0" VerticalAlignment="Top" Width="77" Click="BtnMain_Click"/>
         <DataGrid x:Name="DgPerson" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10,15,10,37" CanUserResizeColumns="False" Grid.ColumnSpan="2" Grid.Column="1" SelectionChanged="DgPerson_SelectionChanged" >
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="DgtIdCard" Width="0.25*" Header="IdCard" Binding="{Binding IdCard}"/>

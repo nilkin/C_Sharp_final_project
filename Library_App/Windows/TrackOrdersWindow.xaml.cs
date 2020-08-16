@@ -1,11 +1,9 @@
 ﻿using Library_App.Data;
-using Library_App.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 using System.Linq;
-using Syncfusion.Windows.Shared;
+
 
 namespace Library_App.Windows
 {
@@ -15,14 +13,12 @@ namespace Library_App.Windows
     public partial class TrackOrdersWindow : Window
     {
         private readonly LibraryContext _context;
-        private Order _order;
         public TrackOrdersWindow()
         {
             InitializeComponent();
             _context = new LibraryContext();
-            _order = new Order();
         }
-
+        //DAILY TRACING TODAY TAB
         private void BtnShow_Click(object sender, RoutedEventArgs e)
         {
             var query = from c in _context.Customers
@@ -30,7 +26,13 @@ namespace Library_App.Windows
                         on c.Id equals o.CustomerId
                         where o.DeadLine.Date == DateTime.Now.Date
                         where o.PaymentStatus == false
-                        group o by new { c.Name, c.Surname, c.Phone, c.Email }
+                        group o by new
+                        {
+                            c.Name, 
+                            c.Surname,
+                            c.Phone,
+                            c.Email 
+                        }
                         into g
                         select new
                         {
@@ -45,14 +47,14 @@ namespace Library_App.Windows
 
 
         }
-
+        //back to main dashboard window
         private void BtnMain_Click(object sender, RoutedEventArgs e)
         {
             DashboardWindow dbw = new DashboardWindow();
             dbw.Show();
             this.Close();
         }
-
+        //DAILY TRACING TOMORROW TAB
         private void BtnShow2_Click(object sender, RoutedEventArgs e)
         {
 
@@ -76,6 +78,7 @@ namespace Library_App.Windows
 
             DgtTomorrow.ItemsSource = query.ToList();
         }
+        //NON PAYED RECEIVABELS TAB
         private void BtnShow3_Click(object sender, RoutedEventArgs e)
         {
             var query = from c in _context.Customers

@@ -45,6 +45,7 @@
         <TextBox x:Name="TxtPassword" HorizontalAlignment="Left" Margin="106,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" MaxLength="14"/>
         <Label Content="Position" HorizontalAlignment="Left" Margin="30,243,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="CbxPosition" HorizontalAlignment="Left" Margin="106,241,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Source={StaticResource MyEnum}}"  />
+        <Button x:Name="BtnMain" Content="Main" HorizontalAlignment="Left" Margin="127,371,0,0" VerticalAlignment="Top" Width="77" Click="BtnMain_Click"/>
 
 
 

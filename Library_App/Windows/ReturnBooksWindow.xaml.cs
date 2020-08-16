@@ -20,6 +20,8 @@ namespace Library_App.Windows
             _context = new LibraryContext();
             _order = new Order();
         }
+        //Search BOOK FROM datagrid pay fine and total price 
+        //change status to payed and update information about order
         private void DgReturnBooks_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -42,6 +44,7 @@ namespace Library_App.Windows
 
             BtnPay.Visibility = Visibility.Visible;
         }
+       //Search CUSTOMER BY FILL METHOD
         private void BtnSearchCustomer_Click(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TxtCustomerId.Text))
@@ -54,7 +57,14 @@ namespace Library_App.Windows
             Fill();
             Reset();
         }
-
+        //back to main dashboard window
+        private void BtnMain_Click(object sender, RoutedEventArgs e)
+        {
+            DashboardWindow dw = new DashboardWindow();
+            dw.Show();
+            this.Close();
+        }
+      // ORDER PAY 
         private void BtnPay_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult r = MessageBox.Show($"{TxtTotalPay.Text} ", "Məbləği Təsdiqləyin", MessageBoxButton.OKCancel);
@@ -69,6 +79,7 @@ namespace Library_App.Windows
             Fill();
             Reset();
         }
+        //filling data method
         private void Fill()
         {
             var order = from ef in _context.BookOrders
@@ -101,11 +112,13 @@ namespace Library_App.Windows
 
             
         }
-
+        //reset method
         private void Reset()
         {
             TxtFine.Text = "0,00";
             TxtTotalPay.Text = "0,00";
         }
+
+
     }
 }  

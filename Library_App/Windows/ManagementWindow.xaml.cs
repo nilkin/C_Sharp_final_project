@@ -18,8 +18,9 @@ namespace Library_App.Windows
             _context = new LibraryContext();
             _management = new Management();
         }
+        //add to Datbase
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
-        {
+        {// VALIDATION check
             Double Number;
             if (Double.TryParse(TxtName.Text, out Number) || Double.TryParse(TxtSurname.Text, out Number))
             {
@@ -55,7 +56,8 @@ namespace Library_App.Windows
             MessageBox.Show($"{TxtUsername.Text} adli istifadəçi {(Positions)CbxPosition.SelectedItem} statusu ilə əlavə edildi");
             Reset();
             FillManagements();
-        }       
+        }
+        //select from DataGrid
         private void DgPerson_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (DgPerson.SelectedItem == null) return;
@@ -70,6 +72,7 @@ namespace Library_App.Windows
             BtnUpdate.Visibility = Visibility.Visible;
             BtnDelete.Visibility = Visibility.Visible;
         }
+        //update from DataGrid add to DB
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
             _selectedManagement.Name = TxtName.Text;
@@ -82,11 +85,13 @@ namespace Library_App.Windows
             MessageBox.Show("İdarəçi dəyişiklikləri yeniləndi");
             FillManagements();
         }
+        //read from DataBase
         private void BtnRead_Click(object sender, RoutedEventArgs e)
         {
             FillManagements();
             Reset();
         }
+        //delete from DataBase
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult r = MessageBox.Show("Silməyə əminsiniz?", _selectedManagement.ToString(), MessageBoxButton.OKCancel);
@@ -99,6 +104,19 @@ namespace Library_App.Windows
                 FillManagements();
             }
         }
+        //back to main dashboard window
+        private void BtnMain_Click(object sender, RoutedEventArgs e)
+        {
+            DashboardWindow dw = new DashboardWindow();
+            dw.Show();
+            this.Close();
+        }
+        //filling data method
+        private void FillManagements()
+        {
+            DgPerson.ItemsSource = _context.Managements.ToList();
+        }
+        //reset method
         private void Reset()
         {
             TxtName.Clear();
@@ -110,9 +128,8 @@ namespace Library_App.Windows
             BtnDelete.Visibility = Visibility.Hidden;
             BtnRead.Visibility = Visibility.Hidden;
         }
-        private void FillManagements()
-        {
-            DgPerson.ItemsSource = _context.Managements.ToList();
-        }
+        
+
+
     }
 }

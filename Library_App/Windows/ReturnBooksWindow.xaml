@@ -51,6 +51,9 @@
         <!--<TextBox x:Name="TxtAmount" IsReadOnly="True" HorizontalAlignment="Left" Margin="832,84,0,0" Text="0,00" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>-->
         <Label Content="AZN" HorizontalAlignment="Left" Margin="571,85,0,0" VerticalAlignment="Top"/>
         <Label Content="AZN" HorizontalAlignment="Left" Margin="767,85,0,0" VerticalAlignment="Top"/>
+
         <!--<Label Content="AZN" HorizontalAlignment="Left" Margin="952,85,0,0" VerticalAlignment="Top"/>-->
+        <Button x:Name="BtnMain" Content="Back to Main Menu" HorizontalAlignment="Left" Margin="1128,105,0,0" VerticalAlignment="Top" Width="160" Click="BtnMain_Click"/>
+
     </Grid>
 </Window>

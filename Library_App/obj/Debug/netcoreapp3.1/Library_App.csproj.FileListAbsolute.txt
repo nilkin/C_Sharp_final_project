@@ -73,7 +73,6 @@ C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\net
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\OrderdWindow.baml
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\Syncfusion.Licensing.dll
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\Syncfusion.Shared.WPF.dll
-C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Library_App.csproj.CoreCompileInputs.cache
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\Xceed.Wpf.AvalonDock.Themes.Aero.dll
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\Xceed.Wpf.AvalonDock.Themes.Metro.dll
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
@@ -96,3 +95,7 @@ C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\net
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\TrackOrdersWindow.g.cs
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\ReportsWindow.baml
 C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Windows\TrackOrdersWindow.baml
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\ClosedXML.dll
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\bin\Debug\netcoreapp3.1\ExcelNumberFormat.dll
+C:\Users\n_ilkin\Desktop\my Code\C_Sharp_final_project\Library_App\obj\Debug\netcoreapp3.1\Library_App.csproj.CoreCompileInputs.cache
