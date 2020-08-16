@@ -18,5 +18,22 @@ namespace Library_App.Data
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Management> Managements { get; set; }
         public DbSet<Order> Orders { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Management>().HasData(
+                new Management
+                {
+                    Id = 1,
+                    Name ="admin",
+                    Surname="admin",    
+                    UserName = "admin",
+                    Parol = "admin",
+                    Position = Positions.Admin
+                }
+                
+                );
+        }
+
     }
 }

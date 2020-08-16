@@ -4,14 +4,16 @@ using Library_App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Library_App.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20200816225213_newDataBase")]
+    partial class newDataBase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -140,17 +142,6 @@ namespace Library_App.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Managements");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "admin",
-                            Parol = "admin",
-                            Position = 0,
-                            Surname = "admin",
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("Library_App.Models.Order", b =>
